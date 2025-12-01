@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Counter</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+  body{
+    background-color:purple;
+  }
+  #main-wrapar{
+    background-color:rgb(255,118,128);
+    border-radius:10px 10px 50% 50%;
+    width:200px;
+    height:max-content;
+    margin:150px auto;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+  #screen{
+    padding:2px 2px;
+    width:180px;
+    height:50px;
+    font-weight:bold;
+    background-color:rgb(98,114,131);
+    font-size:42px;
+    overflow:auto;
+  }
+  /*~~~~~~*/
+  #btn-wrapar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  #btn-wrapar button{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    font-size:55px;
+    font-weight:bold;
+    background-color:rgb(190,104,0);
+    color:rgb(255,150,49);
+  }
+  #btn-wrapar div{
+    display:flex;
+    gap:20px;
+  }
+  #btn-wrapar div button{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    font-size:20px;
+    font-weight:bold;
+  }
+  </style>
+</head>
+<body>
+  <div id="main-wrapar">
+      <p id="screen"></p>
+    <div id="btn-wrapar">
+      <div>
+        <button id="light">💡</button>
+        <button id="hide">H</button>
+        <button id="zero">0</button>
+      </div>
+      <button id="pluse">+</button>
+    </div>
+  </div>
+
+  <script>
+   let screen = document.getElementById('screen');
+   let light = document.getElementById('light');
+   let hide = document.getElementById('hide');
+   let zero = document.getElementById('zero');
+   let pluse = document.getElementById('pluse');
+   let count = 0;
+  pluse.addEventListener('click', () => {
+    count += 1;
+    screen.textContent = count; 
+    hide.textContent = 'H';
+  });
+  zero.addEventListener('click', () => {
+    count = 0;
+    screen.textContent = count;
+    hide.textContent = 'H';
+  });
+  hide.addEventListener('click', () => {
+    if(hide.textContent == 'H'){
+      screen.textContent = '';
+      hide.textContent = 'S';
+    }else{
+      screen.textContent = count;
+      hide.textContent = 'H';
+    };
+  });
+  let ch = 0;
+  light.addEventListener('click', () => {
+    if(ch == 0){
+      ch = 1;
+      screen.style.backgroundColor = 'rgb(0, 170, 0)';
+      screen.style.color = 'rgb(0,90,0)';
+    }else{
+      ch = 0;
+      screen.style.backgroundColor = 'rgb(98,114,131)';
+      screen.style.color = 'rgb(0,0,0)';
+    };
+  });
+  </script>
+</body>
+</html>
